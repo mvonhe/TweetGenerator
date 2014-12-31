@@ -9,8 +9,8 @@
 </head>
 <body>
 	<?php
-//	ini_set('display_errors','On');
-//	error_reporting(E_ALL | E_STRICT );
+	//ini_set('display_errors','On');
+	//error_reporting(E_ALL | E_STRICT );
 	?>
 
 	<div class="container-fluid">
@@ -26,29 +26,31 @@
 			//Per default, only the first line is visible.
 			?>
 			<form role="form" action="Interface.php" method="post" id="tgvars" accept-charset="UTF-8">
-
                 <div class="form-group">
-				<p><label for="text">Number of tweets: </label>
-                    
-                    <p><input type="number" name="quantity" min="1" value="20" size="1"></p>
+					<p><label for="text">Choose Script: </label>
+					<input type= "radio" id= "radioM" name="script" value="mad" checked="checked"> Rule-based
+                    <input type= "radio" id= "radioD" name="script" value="dia" > Probability
+                    <br><label for="text">Number of tweets: </label>
+                    <input type="number" name="quantity" min="1" max="1000" value="20" size="1">
+                    <br><input type="checkbox" name="isSortedByTopic" value="sorted"> Sort by Topic<br></p>
 					
-					<p>		
-					<label for="text"> Topic: </label>
+					<br><p>		
+					<label for="text"> Topic 1: </label>
                     <input type="text" name="name1" min="0" max="100" size="10">
-                    <label for="text">&nbsp Percentage: </label>
+                    <br><label for="text">&nbsp Percentage: </label>
 		    		<input type="number" name="num1" min="0" max="100" size="1" value="100" id="p1">
-                    <label for="text">&nbsp Sentiment: </label>
+                    <br><label for="text">&nbsp Sentiment: </label>
                     <input type= "radio" id= "radio11" name="polarity1" value="pos" > pos
                     <input type= "radio" id= "radio12" name="polarity1" value="neg" > neg
                     <input type= "radio" id= "radio13" name="polarity1" value="neut" > neut</p>
 					
 					<p>
-					<div id="div2" style="display: none;"> 
-					<label for="text"> Topic: </label>
+					<div id="div2" style="display: none;"><br>
+					<label for="text"> Topic 2: </label>
                     <input type="text" name="name2" min="0" max="100" size="10">
-                    <label for="text">&nbsp Percentage: </label>
+                    <br><label for="text">&nbsp Percentage: </label>
 		    		<input type="number" name="num2" min="0" max="100" size="1" value="0" id="p2">
-                    <label for="text">&nbsp Sentiment: </label>
+                    <br><label for="text">&nbsp Sentiment: </label>
                     <input type= "radio" id= "radio21" name="polarity2" value="pos" > pos
                     <input type= "radio" id= "radio22" name="polarity2" value="neg" > neg
                     <input type= "radio" id= "radio23" name="polarity2" value="neut" > neut
@@ -56,12 +58,12 @@
                     </p>
                     
                     <p>
-					<div id="div3" style="display: none;"> 
-                    <label for="text"> Topic: </label>
+					<div id="div3" style="display: none;"> <br>
+                    <label for="text"> Topic 3: </label>
                     <input type="text" name="name3" min="0" max="100" size="10">
-                    <label for="text">&nbsp Percentage: </label>
+                    <br><label for="text">&nbsp Percentage: </label>
 		    		<input type="number" name="num3" min="0" max="100" size="1" value="0" id="p3">
-                    <label for="text">&nbsp Sentiment: </label>
+                    <br><label for="text">&nbsp Sentiment: </label>
                     <input type= "radio" id= "radio31" name="polarity3" value="pos" > pos
                     <input type= "radio" id= "radio32" name="polarity3" value="neg" > neg
                     <input type= "radio" id= "radio33" name="polarity3" value="neut" > neut
@@ -69,12 +71,12 @@
                     </p>
                     
                     <p>
-					<div id="div4" style="display: none;"> 
-					<label for="text"> Topic: </label>
+					<div id="div4" style="display: none;"><br>
+					<label for="text"> Topic 4: </label>
                     <input type="text" name="name4" min="0" max="100" size="10">
-                    <label for="text">&nbsp Percentage: </label>
+                    <br><label for="text">&nbsp Percentage: </label>
 		    		<input type="number" name="num4" min="0" max="100" size="1" value="0" id="p4">
-                    <label for="text">&nbsp Sentiment: </label>
+                    <br><label for="text">&nbsp Sentiment: </label>
                     <input type= "radio" id= "radio41" name="polarity4" value="pos" > pos
                     <input type= "radio" id= "radio42" name="polarity4" value="neg" > neg
                     <input type= "radio" id= "radio43" name="polarity4" value="neut" > neut
@@ -82,12 +84,12 @@
                     </p>
                     
                     <p>
-					<div id="div5" style="display: none;"> 
-					<label for="text"> Topic: </label>
+					<div id="div5" style="display: none;"><br>
+					<label for="text"> Topic 5: </label>
                     <input type="text" name="name5" min="0" max="100" size="10">
-                    <label for="text">&nbsp Percentage: </label>
+                    <br><label for="text">&nbsp Percentage: </label>
 		    		<input type="number" name="num5" min="0" max="100" size="1" value="0" id="p5">
-                    <label for="text">&nbsp Sentiment: </label>
+                    <br><label for="text">&nbsp Sentiment: </label>
                     <input type= "radio" id= "radio51" name="polarity5" value="pos" > pos
                     <input type= "radio" id= "radio52" name="polarity5" value="neg" > neg
                     <input type= "radio" id= "radio53" name="polarity5" value="neut" > neut
@@ -107,6 +109,7 @@
 		// itself, activating the php script down below.?>
 		
 		<input type="submit" name="submit"  id="button" class="btn btn-default"/>
+		
 			</form>
 
 
@@ -116,7 +119,8 @@
 		// an array which will be sent to the function GenerateTweets.
 		// A line will be considered only if the radio butten was clicked.
 		
-		include 'TweetGenerator.php';
+		include 'TweetGeneratorMad.php'; 	//Madeleines TweetGenerator Skript
+		include 'TweetGeneratorDia.php';	//Dianas TweetGenerator Skript
 
 		$quantity = $_POST['quantity'];
 		$array = array();
@@ -162,10 +166,22 @@
 		
 		if ($isgenerateTweets){
 			echo "<br><label>Tweets:</label><ol type=1>";
-
-		$tweets = generateTweets($quantity, $array);
-
-		foreach ($tweets as $key => $value){
+			
+			
+			//Depending on users choice, either Dianas or Madeleines Script will be executed.
+			if ($_POST['script'] == 'mad'){
+				$tweets = generateTweetsMad($quantity, $array);
+			}
+			else{
+				$tweets = generateTweetsDia($quantity, $array);
+			}
+			
+			// Array can be shuffled before being printed to the output.
+			if ($_POST['isSortedByTopic'] != "sorted"){
+			shuffle($tweets);}
+			
+			// Array is oputput
+			foreach ($tweets as $key => $value){
 
 			echo "<li>" .  $value ."</li><br>";
 			}
@@ -181,11 +197,11 @@
               // these event listeners call the respective functions when percentage values
               // or radiobuttons are changed
               
-                        document.getElementById("p1").addEventListener("change", myFunction);			
-                        document.getElementById("p2").addEventListener("change", myFunction);			
-                        document.getElementById("p3").addEventListener("change", myFunction);			
-                        document.getElementById("p4").addEventListener("change", myFunction);			
-                        document.getElementById("p5").addEventListener("change", myFunction);	
+            document.getElementById("p1").addEventListener("change", myFunction);			
+            document.getElementById("p2").addEventListener("change", myFunction);			
+            document.getElementById("p3").addEventListener("change", myFunction);			
+            document.getElementById("p4").addEventListener("change", myFunction);			
+            document.getElementById("p5").addEventListener("change", myFunction);	
                         		
 			document.getElementById("radio11").addEventListener("change", addline2);				
 			document.getElementById("radio12").addEventListener("change", addline2);				
@@ -260,7 +276,7 @@
                         // the myfunction function makes sure nobody enters percentage
                         // values that add up to more than 100%
                         
-			//TO DO: deal with case that user enters <100% 
+						//TO DO: deal with case that user enters !=100% 
                         function myFunction() {
                         var x = parseInt(document.getElementById("p1").value);
                        	var y = parseInt(document.getElementById("p2").value);
@@ -269,7 +285,7 @@
                        	var b = parseInt(document.getElementById("p5").value);
 
                         if ((x+y+z+a+b)>100){
-                            document.getElementById("message").innerHTML = "Percentages add up to more than 100!";
+                            document.getElementById("message").innerHTML = "Percentages must add up to 100%!";
                             document.getElementById("button").disabled = true;
                         }
                         
